@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="sky-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a7ad4"/>
+      <stop offset="70%" stop-color="#4aa8e8"/>
+      <stop offset="100%" stop-color="#87ceeb"/>
+    </linearGradient>
+  </defs>
+  <!-- Clear blue sky (like your photo) -->
+  <rect width="900" height="500" fill="url(#sky-blue)"/>
+  <!-- Rooftop concrete surface -->
+  <rect y="380" width="900" height="220" fill="#c8bca8"/>
+  <rect y="380" width="900" height="220" fill="#d0c4b0" opacity="0.5"/>
+  <!-- City skyline in background -->
+  <rect x="620" y="200" width="60" height="210" fill="#e8e0d0" opacity="0.7"/>
+  <rect x="700" y="160" width="80" height="250" fill="#ddd8c8" opacity="0.7"/>
+  <rect x="750" y="220" width="50" height="190" fill="#e0d8c8" opacity="0.6"/>
+  <!-- Rooftop perimeter wall/parapet -->
+  <rect x="0" y="340" width="900" height="50" fill="#b8a890"/>
+  <rect x="0" y="335" width="900" height="8" fill="#a89070"/>
+  <!-- Rooftop furniture - tables and benches -->
+  <!-- Table 1 -->
+  <rect x="100" y="420" width="140" height="8" rx="3" fill="#5a4a3a"/>
+  <rect x="110" y="428" width="10" height="50" rx="2" fill="#5a4a3a"/>
+  <rect x="220" y="428" width="10" height="50" rx="2" fill="#5a4a3a"/>
+  <!-- Bench beside table 1 -->
+  <rect x="90" y="450" width="160" height="6" rx="2" fill="#4a3a2a"/>
+  <rect x="100" y="456" width="10" height="25" rx="2" fill="#4a3a2a"/>
+  <rect x="230" y="456" width="10" height="25" rx="2" fill="#4a3a2a"/>
+  <!-- Table 2 -->
+  <rect x="350" y="415" width="140" height="8" rx="3" fill="#5a4a3a"/>
+  <rect x="360" y="423" width="10" height="50" rx="2" fill="#5a4a3a"/>
+  <rect x="470" y="423" width="10" height="50" rx="2" fill="#5a4a3a"/>
+  <!-- Bench beside table 2 -->
+  <rect x="340" y="445" width="160" height="6" rx="2" fill="#4a3a2a"/>
+  <rect x="350" y="451" width="10" height="25" rx="2" fill="#4a3a2a"/>
+  <rect x="480" y="451" width="10" height="25" rx="2" fill="#4a3a2a"/>
+  <!-- Ping pong table (blue, like in real photo) - foreground -->
+  <rect x="100" y="470" width="700" height="4" rx="2" fill="#1a5aa0"/>
+  <rect x="100" y="474" width="700" height="80" rx="3" fill="#1a7ad4"/>
+  <rect x="100" y="474" width="700" height="80" rx="3" fill="#2080d8" opacity="0.7"/>
+  <!-- Table net -->
+  <rect x="445" y="465" width="12" height="95" fill="#eee" opacity="0.9"/>
+  <!-- Table lines -->
+  <line x1="100" y1="514" x2="800" y2="514" stroke="white" stroke-width="2" opacity="0.7"/>
+  <line x1="450" y1="474" x2="450" y2="554" stroke="white" stroke-width="2" opacity="0.7"/>
+  <!-- Table legs -->
+  <rect x="115" y="554" width="12" height="30" rx="2" fill="#1a1a2a"/>
+  <rect x="155" y="554" width="12" height="30" rx="2" fill="#1a1a2a"/>
+  <rect x="730" y="554" width="12" height="30" rx="2" fill="#1a1a2a"/>
+  <rect x="770" y="554" width="12" height="30" rx="2" fill="#1a1a2a"/>
+  <!-- Some chairs/umbrellas in background -->
+  <rect x="680" y="390" width="60" height="5" rx="2" fill="#4a80a0" opacity="0.7"/>
+  <rect x="705" y="345" width="4" height="55" fill="#4a80a0" opacity="0.7"/>
+  <ellipse cx="707" cy="340" rx="40" ry="8" fill="#4a80a0" opacity="0.6"/>
+  <!-- MOCK IMAGE label -->
+  <rect x="0" y="530" width="900" height="70" fill="rgba(0,0,0,0.65)"/>
+  <text x="450" y="558" font-family="Arial, sans-serif" font-size="13" fill="#aaa" text-anchor="middle" font-weight="normal">MOCK IMAGE — Replace with real photo</text>
+  <text x="450" y="582" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Rooftop Deck &amp; Surface Cleaning</text>
+</svg>

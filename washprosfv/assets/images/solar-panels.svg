@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <pattern id="panels" x="0" y="30" width="150" height="90" patternUnits="userSpaceOnUse">
+      <!-- Solar panel unit -->
+      <rect width="150" height="90" fill="#1a2a3a"/>
+      <rect x="2" y="2" width="146" height="86" fill="#1e3348"/>
+      <!-- Cell grid lines -->
+      <line x1="0" y1="30" x2="150" y2="30" stroke="#0d1f2e" stroke-width="1"/>
+      <line x1="0" y1="60" x2="150" y2="60" stroke="#0d1f2e" stroke-width="1"/>
+      <line x1="50" y1="0" x2="50" y2="90" stroke="#0d1f2e" stroke-width="1"/>
+      <line x1="100" y1="0" x2="100" y2="90" stroke="#0d1f2e" stroke-width="1"/>
+      <!-- Cell sheen -->
+      <rect x="2" y="2" width="48" height="28" fill="#223d55" opacity="0.6"/>
+      <rect x="52" y="2" width="48" height="28" fill="#1f3a50" opacity="0.6"/>
+      <rect x="102" y="2" width="46" height="28" fill="#223d55" opacity="0.6"/>
+      <!-- Frame highlight -->
+      <rect x="0" y="0" width="150" height="2" fill="#2a3f52"/>
+      <rect x="0" y="0" width="2" height="90" fill="#2a3f52"/>
+      <!-- Gap between panels -->
+      <rect x="0" y="88" width="150" height="2" fill="#0a0f14"/>
+      <rect x="148" y="0" width="2" height="90" fill="#0a0f14"/>
+    </pattern>
+  </defs>
+  <!-- Sky background -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a90d9"/>
+      <stop offset="100%" stop-color="#87ceeb"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="250" fill="url(#sky)"/>
+  <!-- Rooftop surface -->
+  <rect y="230" width="900" height="370" fill="#b0a090"/>
+  <!-- Roof texture -->
+  <rect y="230" width="900" height="370" fill="#a89880" opacity="0.5"/>
+  <!-- Solar panel array -->
+  <rect y="80" width="900" height="360" fill="url(#panels)"/>
+  <!-- Dust/dirt on panels (before cleaning) -->
+  <rect y="80" width="900" height="360" fill="#8a7a60" opacity="0.25"/>
+  <!-- Sun glare on a few panels -->
+  <ellipse cx="200" cy="160" rx="30" ry="15" fill="white" opacity="0.15"/>
+  <ellipse cx="500" cy="220" rx="25" ry="12" fill="white" opacity="0.12"/>
+  <!-- Mounting rails shadow -->
+  <rect y="168" width="900" height="4" fill="#0a0f14" opacity="0.4"/>
+  <rect y="258" width="900" height="4" fill="#0a0f14" opacity="0.4"/>
+  <rect y="348" width="900" height="4" fill="#0a0f14" opacity="0.4"/>
+  <!-- MOCK IMAGE label -->
+  <rect x="0" y="530" width="900" height="70" fill="rgba(0,0,0,0.65)"/>
+  <text x="450" y="558" font-family="Arial, sans-serif" font-size="13" fill="#aaa" text-anchor="middle" font-weight="normal">MOCK IMAGE — Replace with real photo</text>
+  <text x="450" y="582" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Solar Panels / Roof — Cleaning Service</text>
+</svg>
