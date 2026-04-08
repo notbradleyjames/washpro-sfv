@@ -614,7 +614,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   gap: 28px;
   padding: 34px 0;
-  border-bottom: 1px solid var(--border);
   cursor: pointer;
   transition:
     padding var(--t) var(--ease),
@@ -663,6 +662,94 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition:
     transform var(--t) var(--ease),
     color var(--t) var(--ease);
+}
+
+/* ── Service accordion ── */
+.service-item { border-bottom: 1px solid var(--border); }
+.services-list { border-top: 1px solid var(--border); }
+.services-list .service-item:last-child { border-bottom: none; }
+/* remove old border from the row itself since item wraps it */
+.service-item .service-row {
+  border-bottom: none;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+.service-item.open .service-row { border-bottom: none; }
+.service-item.open .service-arrow {
+  transform: rotate(90deg);
+  color: var(--green);
+}
+.service-item.open .service-title { color: var(--green); }
+
+.service-expand {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.42s cubic-bezier(0.4,0,0.2,1);
+}
+.service-expand[hidden] { display: block !important; max-height: 0; }
+.service-item.open .service-expand { max-height: 600px; }
+
+.service-expand-inner {
+  padding: 4px 0 36px 100px;
+}
+.se-intro {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+.se-intro strong { color: var(--white); }
+.se-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 48px;
+  margin-bottom: 28px;
+}
+.se-col-title {
+  font-family: var(--font-h);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.se-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.se-list li {
+  font-size: 14px;
+  color: var(--muted);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.se-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.7;
+}
+.se-cta { display: inline-flex; }
+
+@media (max-width: 768px) {
+  .service-expand-inner { padding: 4px 0 28px 0; }
+  .se-cols { grid-template-columns: 1fr; gap: 20px; }
 }
 
 /* ═══════════════════════════════════════════════
