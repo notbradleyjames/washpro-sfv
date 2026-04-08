@@ -751,6 +751,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .comparison-before { clip-path: inset(0 50% 0 0); }
 
+/* Fill panels with real photos */
+.comparison-after img,
+.comparison-before img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* 2025-06-16.webp is a side-by-side split image:
+   BEFORE = left half, AFTER = right half */
+.comparison-split-after  { object-position: right center; }
+.comparison-split-before { object-position: left center; }
+
 .comparison-label {
   position: absolute;
   top: 18px;
