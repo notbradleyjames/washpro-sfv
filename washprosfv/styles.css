@@ -298,26 +298,46 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   overflow: hidden;
 }
 
+/* ── Hero background image (Ken Burns) ── */
+.hero-img-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-img-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  animation: kenBurns 16s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes kenBurns {
+  0%   { transform: scale(1.1) translate(1%, 0.5%); }
+  100% { transform: scale(1.0) translate(-1%, -0.5%); }
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 900px 700px at 80% 50%, rgba(20, 70, 150, 0.14) 0%, transparent 65%),
-    radial-gradient(ellipse 500px 400px at 12% 72%, rgba(44, 201, 107, 0.07) 0%, transparent 60%);
+    linear-gradient(to right, rgba(6,16,31,0.92) 35%, rgba(6,16,31,0.55) 75%, rgba(6,16,31,0.35) 100%),
+    linear-gradient(to bottom, rgba(6,16,31,0.4) 0%, transparent 25%, transparent 75%, rgba(6,16,31,0.7) 100%);
 }
 .hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(90deg,  rgba(255,255,255,0.013) 0, rgba(255,255,255,0.013) 1px, transparent 1px, transparent 100px),
-    repeating-linear-gradient(0deg,   rgba(255,255,255,0.013) 0, rgba(255,255,255,0.013) 1px, transparent 1px, transparent 100px);
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.012) 0, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 100px),
+    repeating-linear-gradient(0deg,  rgba(255,255,255,0.012) 0, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 100px);
 }
 
 .hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1240px;
   margin: 0 auto;
   padding: 160px 48px 120px;
@@ -1141,6 +1161,80 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ═══════════════════════════════════════════════
+   PHOTO MARQUEE
+═══════════════════════════════════════════════ */
+#marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Edge fade overlays */
+.marquee-fade {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee-fade--l {
+  left: 0;
+  background: linear-gradient(to right, var(--bg2), transparent);
+}
+.marquee-fade--r {
+  right: 0;
+  background: linear-gradient(to left, var(--bg2), transparent);
+}
+
+.marquee-row {
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.marquee-row:last-child { margin-bottom: 0; }
+
+.marquee-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+}
+.marquee-track--fwd {
+  animation: marqueeLeft 36s linear infinite;
+}
+.marquee-track--rev {
+  animation: marqueeRight 40s linear infinite;
+}
+#marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-img {
+  width: 320px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: block;
+  filter: brightness(0.82) saturate(0.9);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+.marquee-img:hover {
+  filter: brightness(1) saturate(1.05);
+  transform: scale(1.02);
+}
+
+/* ═══════════════════════════════════════════════
    MOBILE MENU
 ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
@@ -1242,6 +1336,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .cap-dot { display: none; }
 
   .floating-phone { right: 16px; bottom: 18px; font-size: 13px; padding: 11px 18px; }
+
+  .marquee-img { width: 220px; height: 148px; }
+  #marquee { padding: 36px 0; }
+  .marquee-fade { width: 60px; }
 }
 
 @media (max-width: 480px) {
