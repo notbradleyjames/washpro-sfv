@@ -252,6 +252,137 @@
   setTimeout(() => btn.classList.add('visible'), 1500);
 })();
 
+/* ─── Rain on glass effect ─── */
+(function initRain() {
+  const canvas = document.createElement('canvas');
+  canvas.id = 'rain-canvas';
+  Object.assign(canvas.style, {
+    position: 'fixed',
+    inset: '0',
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none',
+    zIndex: '3',
+  });
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  const isMobile = window.innerWidth < 768;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  /* ── Streaks: fast thin lines ── */
+  const STREAK_COUNT = isMobile ? 55 : 110;
+  function makeStreak() {
+    return {
+      x:       Math.random() * (W || window.innerWidth),
+      y:       Math.random() * -(H || window.innerHeight),
+      speed:   7 + Math.random() * 14,
+      len:     12 + Math.random() * 45,
+      width:   0.4 + Math.random() * 1.2,
+      opacity: 0.08 + Math.random() * 0.22,
+    };
+  }
+  const streaks = Array.from({ length: STREAK_COUNT }, makeStreak);
+
+  /* ── Drops: slow, round, with trailing wet line ── */
+  const DROP_COUNT = isMobile ? 14 : 28;
+  function makeDrop() {
+    return {
+      x:          Math.random() * (W || window.innerWidth),
+      y:          Math.random() * -(H || window.innerHeight),
+      speed:      0.6 + Math.random() * 1.8,
+      r:          3 + Math.random() * 5,
+      opacity:    0.18 + Math.random() * 0.28,
+      trail:      [],
+      wobble:     Math.random() * Math.PI * 2,
+      wobbleSpd:  0.018 + Math.random() * 0.025,
+    };
+  }
+  const drops = Array.from({ length: DROP_COUNT }, makeDrop);
+
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+
+    /* streaks */
+    streaks.forEach(s => {
+      const grd = ctx.createLinearGradient(s.x, s.y, s.x, s.y + s.len);
+      grd.addColorStop(0,   `rgba(180,215,255,0)`);
+      grd.addColorStop(0.25,`rgba(190,220,255,${s.opacity})`);
+      grd.addColorStop(0.75,`rgba(200,230,255,${s.opacity})`);
+      grd.addColorStop(1,   `rgba(180,215,255,0)`);
+      ctx.beginPath();
+      ctx.moveTo(s.x, s.y);
+      ctx.lineTo(s.x, s.y + s.len);
+      ctx.strokeStyle = grd;
+      ctx.lineWidth   = s.width;
+      ctx.stroke();
+
+      s.y += s.speed;
+      if (s.y > H + s.len) { Object.assign(s, makeStreak()); s.y = -s.len; }
+    });
+
+    /* drops */
+    drops.forEach(d => {
+      d.wobble += d.wobbleSpd;
+      d.x += Math.sin(d.wobble) * 0.35;
+      d.trail.push({ x: d.x, y: d.y });
+      if (d.trail.length > 22) d.trail.shift();
+
+      /* wet trail */
+      if (d.trail.length > 2) {
+        ctx.beginPath();
+        ctx.moveTo(d.trail[0].x, d.trail[0].y);
+        for (let i = 1; i < d.trail.length; i++) {
+          ctx.lineTo(d.trail[i].x, d.trail[i].y);
+        }
+        ctx.strokeStyle = `rgba(190,225,255,${d.opacity * 0.28})`;
+        ctx.lineWidth   = d.r * 0.45;
+        ctx.lineCap     = 'round';
+        ctx.lineJoin    = 'round';
+        ctx.stroke();
+      }
+
+      /* drop body */
+      const grd = ctx.createRadialGradient(
+        d.x - d.r * 0.25, d.y - d.r * 0.3, 0,
+        d.x,               d.y,              d.r
+      );
+      grd.addColorStop(0,   `rgba(230,245,255,${d.opacity * 1.6})`);
+      grd.addColorStop(0.45,`rgba(185,220,255,${d.opacity})`);
+      grd.addColorStop(1,   `rgba(120,175,225,${d.opacity * 0.25})`);
+
+      ctx.beginPath();
+      ctx.ellipse(d.x, d.y, d.r * 0.65, d.r, 0, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+
+      /* highlight glint */
+      ctx.beginPath();
+      ctx.ellipse(d.x - d.r * 0.22, d.y - d.r * 0.28, d.r * 0.22, d.r * 0.14, -0.5, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${d.opacity * 0.7})`;
+      ctx.fill();
+
+      d.y += d.speed;
+      if (d.y > H + d.r * 2) {
+        Object.assign(d, makeDrop());
+        d.y     = -d.r * 2;
+        d.trail = [];
+      }
+    });
+
+    requestAnimationFrame(tick);
+  }
+
+  tick();
+})();
+
 /* ─── Button press animation ─── */
 (function initButtonPress() {
   document.querySelectorAll('.btn').forEach(btn => {
