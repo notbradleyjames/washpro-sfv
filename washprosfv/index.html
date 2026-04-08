@@ -10,16 +10,15 @@
   <meta property="og:image" content="assets/images/truck-team.webp" />
   <link rel="canonical" href="https://washprosfv.com" />
 
-  <!-- Font Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+  <!-- ═══════════════════ NAV ═══════════════════ -->
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
@@ -38,66 +37,92 @@
         <a href="tel:7472023622" class="btn btn-outline">Call Now</a>
       </div>
 
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
 
-  <!-- ═══════════════════════════════════ HERO ══════════════════════════════════ -->
+  <!-- ═══════════════════ HERO ═══════════════════ -->
   <section id="hero">
-    <!-- Animated drip lines -->
-    <svg class="drip-lines" aria-hidden="true" viewBox="0 0 1600 900" preserveAspectRatio="none">
-      <line class="drip-line drip-1" x1="420" y1="-200" x2="420" y2="1100" />
-      <line class="drip-line drip-2" x1="820" y1="-200" x2="820" y2="1100" />
-    </svg>
+    <div class="hero-bg" aria-hidden="true"></div>
 
-    <!-- Green orb -->
-    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          San Fernando Valley's #1 Pressure Washing
+        </div>
 
-    <div class="hero-content">
-      <div class="badge-pill">
-        <span class="badge-dot"></span>
-        &#9733; San Fernando Valley's #1 Pressure Washing
-      </div>
+        <h1 class="hero-headline">
+          Gentle on<br>
+          <em class="hero-em">your property.</em>
+        </h1>
 
-      <h1 class="hero-headline">
-        <span class="line-normal">GENTLE</span>
-        <span class="line-stroke">ON YOUR</span>
-        <span class="line-green">PROPERTY.</span>
-      </h1>
+        <p class="hero-sub">
+          WashPro SFV — 10+ years of eco-friendly soft washing and pressure
+          cleaning across the San Fernando Valley. We restore pride in your property.
+        </p>
 
-      <p class="hero-sub">
-        WashPro SFV — 10+ years of eco-friendly soft washing and pressure cleaning
-        across the San Fernando Valley. We restore pride in your property.
-      </p>
+        <div class="hero-cta-row">
+          <a href="#cta" class="btn btn-green btn-large">
+            Get a Free Quote
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="tel:7472023622" class="btn btn-outline btn-large">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            747-202-3622
+          </a>
+        </div>
 
-      <div class="hero-cta-row">
-        <a href="#cta" class="btn btn-green btn-large">Get a Free Quote &rarr;</a>
-        <a href="tel:7472023622" class="btn btn-outline btn-large">&#128222; Call 747-202-3622</a>
-      </div>
-
-      <div class="trust-row">
-        <div class="trust-item">
-          <span class="trust-icon">&#128737;</span>
-          <div>
-            <strong>Licensed &amp; Insured</strong>
-            <span>Full coverage, every job</span>
+        <div class="trust-row">
+          <div class="trust-item">
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4l-4.8 2.5.9-5.4L4.2 7.7l5.4-.8L12 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>Licensed &amp; Insured</strong>
+              <span>Full coverage, every job</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>Eco-Friendly</strong>
+              <span>Safe for kids &amp; pets</span>
+            </div>
+          </div>
+          <div class="trust-item">
+            <svg class="trust-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 12l2 2 4-4M7.8 4.4A2 2 0 006 6.2V8a2 2 0 01-.6 1.4L4 10.8a2 2 0 000 2.4l1.4 1.4A2 2 0 016 16v1.8a2 2 0 001.8 2l1.8.2a2 2 0 001.4-.6l1.4-1.4a2 2 0 012.4 0l1.4 1.4a2 2 0 001.4.6l1.8-.2A2 2 0 0020 17.8V16a2 2 0 01.6-1.4L22 13.2a2 2 0 000-2.4l-1.4-1.4A2 2 0 0120 8V6.2a2 2 0 00-1.8-2l-1.8-.2a2 2 0 00-1.4.6L13.6 6a2 2 0 01-2.4 0L9.8 4.6a2 2 0 00-1.4-.6L7.8 4.4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>5-Year Warranty</strong>
+              <span>On roof &amp; house washes</span>
+            </div>
           </div>
         </div>
-        <div class="trust-item">
-          <span class="trust-icon">&#9851;</span>
-          <div>
-            <strong>Eco-Friendly</strong>
-            <span>Safe for kids &amp; pets</span>
-          </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orb"></div>
+        <div class="hero-stat-card hsc-1">
+          <span class="hsc-num">500+</span>
+          <span class="hsc-label">Homes Cleaned</span>
         </div>
-        <div class="trust-item">
-          <span class="trust-icon">&#11088;</span>
-          <div>
-            <strong>5-Year Warranty</strong>
-            <span>On roof &amp; house washes</span>
-          </div>
+        <div class="hero-stat-card hsc-2">
+          <span class="hsc-num">10+</span>
+          <span class="hsc-label">Years in SFV</span>
+        </div>
+        <div class="hero-stat-card hsc-3">
+          <span class="hsc-num">5yr</span>
+          <span class="hsc-label">Warranty</span>
         </div>
       </div>
     </div>
@@ -108,99 +133,149 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════ STATS BAR ════════════════════════════════ -->
+  <!-- ═══════════════════ STATS BAR ═══════════════════ -->
   <section id="stats">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="10" data-suffix="+">0</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="500" data-suffix="+">0</span>
-          <span class="stat-label">Homes Cleaned</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="5" data-suffix="yr" data-prefix="">0</span>
-          <span class="stat-label">Warranty</span>
-        </div>
-        <div class="stat-item reveal">
-          <span class="stat-number" data-target="100" data-suffix="%">0</span>
-          <span class="stat-label">Satisfaction</span>
-        </div>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="10" data-suffix="+">0</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="500" data-suffix="+">0</span>
+        <span class="stat-label">Homes Cleaned</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="5" data-suffix="yr">0</span>
+        <span class="stat-label">Warranty</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="100" data-suffix="%">0</span>
+        <span class="stat-label">Satisfaction</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════ PORTFOLIO GALLERY ══════════════════════════ -->
+  <!-- ═══════════════════ SERVICES ═══════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <div class="section-label reveal">What We Do</div>
+          <h2 class="section-heading reveal">Every surface.<br>Every job.</h2>
+        </div>
+        <p class="services-intro reveal">
+          From residential rooftops to commercial storefronts, we handle every
+          exterior surface with precision and care.
+        </p>
+      </div>
+
+      <div class="services-list">
+        <a href="#cta" class="service-row reveal" style="--delay:0s">
+          <span class="service-num">01</span>
+          <div class="service-body">
+            <h3 class="service-title">House Washing</h3>
+            <p class="service-desc">Full exterior soft wash removing algae, mold, mildew. Safe on all siding types.</p>
+          </div>
+          <svg class="service-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#cta" class="service-row reveal" style="--delay:0.06s">
+          <span class="service-num">02</span>
+          <div class="service-body">
+            <h3 class="service-title">Roof Cleaning</h3>
+            <p class="service-desc">Low-pressure soft wash. Extends roof life and backed by our 5-year warranty.</p>
+          </div>
+          <svg class="service-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#cta" class="service-row reveal" style="--delay:0.12s">
+          <span class="service-num">03</span>
+          <div class="service-body">
+            <h3 class="service-title">Driveway &amp; Concrete</h3>
+            <p class="service-desc">Oil stain removal, patios, walkways, garage floors. Restored to like-new condition.</p>
+          </div>
+          <svg class="service-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#cta" class="service-row reveal" style="--delay:0.18s">
+          <span class="service-num">04</span>
+          <div class="service-body">
+            <h3 class="service-title">Solar Panel Cleaning</h3>
+            <p class="service-desc">Restore panels to peak efficiency. Up to 25% output loss from dirt and debris.</p>
+          </div>
+          <svg class="service-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#cta" class="service-row reveal" style="--delay:0.24s">
+          <span class="service-num">05</span>
+          <div class="service-body">
+            <h3 class="service-title">Commercial Washing</h3>
+            <p class="service-desc">Storefronts, apartment complexes, HOA communities. Professional and efficient.</p>
+          </div>
+          <svg class="service-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#cta" class="service-row reveal" style="--delay:0.30s">
+          <span class="service-num">06</span>
+          <div class="service-body">
+            <h3 class="service-title">Fence &amp; Deck Restoration</h3>
+            <p class="service-desc">Wood restoration and soft wash cleaning. Revive weathered surfaces.</p>
+          </div>
+          <svg class="service-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
   <section id="portfolio">
     <div class="container">
       <div class="section-label reveal">Our Work</div>
-      <h2 class="section-heading reveal">RESULTS THAT SPEAK<br>FOR THEMSELVES.</h2>
+      <h2 class="section-heading reveal">Results that speak<br>for themselves.</h2>
 
       <div class="portfolio-grid">
-        <div class="portfolio-card reveal" data-index="0" style="transition-delay:0.0s">
-          <img
-            src="https://picsum.photos/seed/washpro-p1/800/600"
-            alt="Driveway pressure washing in Northridge CA"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('img-error')"
-          />
+        <div class="portfolio-card portfolio-card--large reveal" data-index="0">
+          <img src="https://picsum.photos/seed/washpro-p1/900/700" alt="Driveway pressure washing in Northridge CA" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           <div class="portfolio-overlay">
             <span class="portfolio-label">Driveway Clean &middot; Northridge, CA</span>
           </div>
         </div>
-        <div class="portfolio-card reveal" data-index="1" style="transition-delay:0.1s">
-          <img
-            src="https://picsum.photos/seed/washpro-p2/800/600"
-            alt="House soft washing in Chatsworth CA"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('img-error')"
-          />
+        <div class="portfolio-card reveal" data-index="1" style="transition-delay:0.08s">
+          <img src="https://picsum.photos/seed/washpro-p2/800/500" alt="House soft washing in Chatsworth CA" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           <div class="portfolio-overlay">
             <span class="portfolio-label">House Wash &middot; Chatsworth, CA</span>
           </div>
         </div>
-        <div class="portfolio-card reveal" data-index="2" style="transition-delay:0.2s">
-          <img
-            src="https://picsum.photos/seed/washpro-p3/800/600"
-            alt="Roof cleaning in Granada Hills CA"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('img-error')"
-          />
+        <div class="portfolio-card reveal" data-index="2" style="transition-delay:0.16s">
+          <img src="https://picsum.photos/seed/washpro-p3/800/500" alt="Roof cleaning in Granada Hills CA" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           <div class="portfolio-overlay">
             <span class="portfolio-label">Roof Clean &middot; Granada Hills, CA</span>
           </div>
         </div>
-        <div class="portfolio-card reveal" data-index="3" style="transition-delay:0.1s">
-          <img
-            src="https://picsum.photos/seed/washpro-p4/800/600"
-            alt="Commercial storefront washing in Van Nuys CA"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('img-error')"
-          />
+        <div class="portfolio-card reveal" data-index="3" style="transition-delay:0.08s">
+          <img src="https://picsum.photos/seed/washpro-p4/800/500" alt="Commercial storefront washing in Van Nuys CA" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           <div class="portfolio-overlay">
             <span class="portfolio-label">Commercial Wash &middot; Van Nuys, CA</span>
           </div>
         </div>
-        <div class="portfolio-card reveal" data-index="4" style="transition-delay:0.2s">
-          <img
-            src="https://picsum.photos/seed/washpro-p5/800/600"
-            alt="Solar panel cleaning in Sherman Oaks CA"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('img-error')"
-          />
+        <div class="portfolio-card reveal" data-index="4" style="transition-delay:0.16s">
+          <img src="https://picsum.photos/seed/washpro-p5/800/500" alt="Solar panel cleaning in Sherman Oaks CA" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           <div class="portfolio-overlay">
             <span class="portfolio-label">Solar Panel Clean &middot; Sherman Oaks, CA</span>
           </div>
         </div>
-        <div class="portfolio-card reveal" data-index="5" style="transition-delay:0.3s">
-          <img
-            src="https://picsum.photos/seed/washpro-p6/800/600"
-            alt="Deck and fence restoration in Encino CA"
-            loading="lazy"
-            onerror="this.parentElement.classList.add('img-error')"
-          />
+        <div class="portfolio-card reveal" data-index="5" style="transition-delay:0.24s">
+          <img src="https://picsum.photos/seed/washpro-p6/800/500" alt="Deck and fence restoration in Encino CA" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           <div class="portfolio-overlay">
             <span class="portfolio-label">Deck Restore &middot; Encino, CA</span>
           </div>
@@ -213,84 +288,22 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ SERVICES ══════════════════════════════════ -->
-  <section id="services">
-    <div class="container">
-      <div class="section-label reveal">What We Do</div>
-      <h2 class="section-heading reveal">EVERY SURFACE.<br>EVERY JOB.</h2>
-
-      <div class="services-grid">
-        <div class="service-card reveal" style="transition-delay:0.0s">
-          <div class="service-icon">&#127968;</div>
-          <h3 class="service-title">House Washing</h3>
-          <p class="service-desc">Full exterior soft wash removing algae, mold, mildew. Safe on all siding types.</p>
-          <div class="service-underline"></div>
-        </div>
-        <div class="service-card reveal" style="transition-delay:0.1s">
-          <div class="service-icon">&#127960;</div>
-          <h3 class="service-title">Roof Cleaning</h3>
-          <p class="service-desc">Low-pressure soft wash. Extends roof life and backed by our 5-year warranty.</p>
-          <div class="service-underline"></div>
-        </div>
-        <div class="service-card reveal" style="transition-delay:0.2s">
-          <div class="service-icon">&#128664;</div>
-          <h3 class="service-title">Driveway &amp; Concrete</h3>
-          <p class="service-desc">Oil stain removal, patios, walkways, garage floors. Restored to like-new condition.</p>
-          <div class="service-underline"></div>
-        </div>
-        <div class="service-card reveal" style="transition-delay:0.1s">
-          <div class="service-icon">&#9728;</div>
-          <h3 class="service-title">Solar Panel Cleaning</h3>
-          <p class="service-desc">Restore panels to peak efficiency. Up to 25% output loss from dirt and debris.</p>
-          <div class="service-underline"></div>
-        </div>
-        <div class="service-card reveal" style="transition-delay:0.2s">
-          <div class="service-icon">&#127970;</div>
-          <h3 class="service-title">Commercial Washing</h3>
-          <p class="service-desc">Storefronts, apartment complexes, HOA communities. Professional and efficient.</p>
-          <div class="service-underline"></div>
-        </div>
-        <div class="service-card reveal" style="transition-delay:0.3s">
-          <div class="service-icon">&#127794;</div>
-          <h3 class="service-title">Fence &amp; Deck Restoration</h3>
-          <p class="service-desc">Wood restoration and soft wash cleaning. Revive weathered surfaces.</p>
-          <div class="service-underline"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════ BEFORE & AFTER ═══════════════════════════════ -->
+  <!-- ═══════════════════ BEFORE & AFTER ═══════════════════ -->
   <section id="before-after">
     <div class="container">
       <div class="section-label reveal">Transformations</div>
-      <h2 class="section-heading reveal">BEFORE. AFTER.<br>THE DIFFERENCE IS CLEAR.</h2>
+      <h2 class="section-heading reveal">Before. After.<br>The difference is clear.</h2>
 
       <div class="comparison-wrapper reveal">
         <div class="comparison-slider" id="comparisonSlider">
-          <!-- After image (base layer) -->
           <div class="comparison-after">
-            <img
-              src="https://picsum.photos/seed/washpro-after/800/600"
-              alt="After pressure washing — clean wall and concrete surface"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-error')"
-            />
+            <img src="https://picsum.photos/seed/washpro-after/900/600" alt="After pressure washing — clean wall and concrete surface" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
             <div class="comparison-label after-label">AFTER</div>
           </div>
-
-          <!-- Before image (clipped) -->
           <div class="comparison-before" id="beforePanel">
-            <img
-              src="https://picsum.photos/seed/washpro-before/800/600"
-              alt="Before pressure washing — dirty wall and concrete surface"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-error')"
-            />
+            <img src="https://picsum.photos/seed/washpro-before/900/600" alt="Before pressure washing — dirty wall and concrete surface" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
             <div class="comparison-label before-label">BEFORE</div>
           </div>
-
-          <!-- Divider -->
           <div class="comparison-divider" id="comparisonDivider">
             <div class="divider-handle">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -302,28 +315,22 @@
       </div>
 
       <div class="comparison-caption reveal">
-        <span>&#127968; Wall &amp; Concrete Clean</span>
-        <span>&middot;</span>
-        <span>&#128205; North Hills, CA</span>
-        <span>&middot;</span>
-        <span>&#9201; Time on job: 2 hours</span>
+        <span>Wall &amp; Concrete Clean</span>
+        <span class="cap-dot"></span>
+        <span>North Hills, CA</span>
+        <span class="cap-dot"></span>
+        <span>2 hours on site</span>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════ WHY WASHPRO ═══════════════════════════════ -->
+  <!-- ═══════════════════ WHY WASHPRO ═══════════════════ -->
   <section id="about">
     <div class="container">
       <div class="why-grid">
-        <!-- Left: Visual card -->
         <div class="why-visual reveal">
           <div class="why-img-wrap">
-            <img
-              src="https://picsum.photos/seed/washpro-truck/1200/700"
-              alt="WashPro SFV team and truck ready for a job"
-              loading="lazy"
-              onerror="this.parentElement.classList.add('img-error')"
-            />
+            <img src="https://picsum.photos/seed/washpro-truck/900/700" alt="WashPro SFV team and truck ready for a job" loading="lazy" onerror="this.parentElement.classList.add('img-error')" />
           </div>
           <div class="why-stats-row">
             <div class="why-stat">
@@ -335,36 +342,40 @@
               <span class="why-stat-label">BBB Rated</span>
             </div>
           </div>
-          <div class="why-badge">&#10003; Fully Insured</div>
+          <div class="why-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Fully Insured
+          </div>
         </div>
 
-        <!-- Right: Reasons -->
         <div class="why-reasons">
           <div class="section-label reveal">Why WashPro</div>
-          <h2 class="section-heading reveal">THE STANDARD IS<br>SET HIGH.</h2>
+          <h2 class="section-heading reveal">The standard<br>is set high.</h2>
 
-          <div class="reason-item reveal" style="transition-delay:0.0s">
+          <div class="reason-item reveal" style="--delay:0s">
             <span class="reason-num">01</span>
             <div>
               <h4 class="reason-title">We Never Use Harsh Pressure</h4>
               <p class="reason-desc">Soft washing protects delicate surfaces from damage caused by high-pressure blasting.</p>
             </div>
           </div>
-          <div class="reason-item reveal" style="transition-delay:0.1s">
+          <div class="reason-item reveal" style="--delay:0.08s">
             <span class="reason-num">02</span>
             <div>
               <h4 class="reason-title">On Time. In Uniform. Insured.</h4>
               <p class="reason-desc">Show up when we say, in branded uniform, with full liability and workers' comp coverage.</p>
             </div>
           </div>
-          <div class="reason-item reveal" style="transition-delay:0.2s">
+          <div class="reason-item reveal" style="--delay:0.16s">
             <span class="reason-num">03</span>
             <div>
               <h4 class="reason-title">Industry-Leading Warranties</h4>
               <p class="reason-desc">5-year warranties on roof, house, and wood restoration. We stand behind every job.</p>
             </div>
           </div>
-          <div class="reason-item reveal" style="transition-delay:0.3s">
+          <div class="reason-item reveal" style="--delay:0.24s">
             <span class="reason-num">04</span>
             <div>
               <h4 class="reason-title">Honest Pricing. Zero Pressure.</h4>
@@ -376,60 +387,60 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════ TESTIMONIALS ═══════════════════════════════ -->
+  <!-- ═══════════════════ REVIEWS ═══════════════════ -->
   <section id="reviews">
     <div class="container">
       <div class="section-label reveal">What Clients Say</div>
-      <h2 class="section-heading reveal">TRUSTED ACROSS<br>THE VALLEY.</h2>
+      <h2 class="section-heading reveal">Trusted across<br>the Valley.</h2>
 
       <div class="reviews-grid">
-        <div class="review-card reveal" style="transition-delay:0.0s">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-card reveal" style="transition-delay:0s">
+          <div class="review-stars" aria-label="5 stars">
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+          </div>
           <p class="review-quote">"My driveway looks brand new. They showed up on time, worked fast, and the results blew me away. Worth every penny."</p>
           <div class="review-author">
-            <img
-              src="https://picsum.photos/seed/person1/80/80"
-              alt="James R. from Northridge CA"
-              loading="lazy"
-              class="review-avatar"
-              onerror="this.classList.add('img-error')"
-            />
+            <img src="https://picsum.photos/seed/reviewer-marcus/80/80" alt="Marcus H." loading="lazy" class="review-avatar" onerror="this.classList.add('img-error')" />
             <div>
-              <strong class="review-name">James R.</strong>
+              <strong class="review-name">Marcus H.</strong>
               <span class="review-location">Northridge, CA</span>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal" style="transition-delay:0.1s">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="review-stars" aria-label="5 stars">
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+          </div>
           <p class="review-quote">"Finally a pressure washing company that does what they promise. My roof looks 10 years younger. Already recommended to my HOA."</p>
           <div class="review-author">
-            <img
-              src="https://picsum.photos/seed/person2/80/80"
-              alt="Maria K. from Chatsworth CA"
-              loading="lazy"
-              class="review-avatar"
-              onerror="this.classList.add('img-error')"
-            />
+            <img src="https://picsum.photos/seed/reviewer-patricia/80/80" alt="Patricia L." loading="lazy" class="review-avatar" onerror="this.classList.add('img-error')" />
             <div>
-              <strong class="review-name">Maria K.</strong>
+              <strong class="review-name">Patricia L.</strong>
               <span class="review-location">Chatsworth, CA</span>
             </div>
           </div>
         </div>
 
         <div class="review-card reveal" style="transition-delay:0.2s">
-          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="review-stars" aria-label="5 stars">
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L8 9.7l-3.2 1.7.6-3.6L2.8 5.3l3.6-.5L8 1.5z"/></svg>
+          </div>
           <p class="review-quote">"Professional from start to finish. The quote was fast, the crew was clean, and my whole property looks incredible. WashPro is the real deal."</p>
           <div class="review-author">
-            <img
-              src="https://picsum.photos/seed/person3/80/80"
-              alt="David T. from Granada Hills CA"
-              loading="lazy"
-              class="review-avatar"
-              onerror="this.classList.add('img-error')"
-            />
+            <img src="https://picsum.photos/seed/reviewer-david/80/80" alt="David T." loading="lazy" class="review-avatar" onerror="this.classList.add('img-error')" />
             <div>
               <strong class="review-name">David T.</strong>
               <span class="review-location">Granada Hills, CA</span>
@@ -440,40 +451,50 @@
     </div>
   </section>
 
-  <!-- ════════════════════════════════ CTA SECTION ══════════════════════════════ -->
+  <!-- ═══════════════════ CTA ═══════════════════ -->
   <section id="cta">
     <div class="cta-glow" aria-hidden="true"></div>
     <div class="container">
       <div class="cta-inner reveal">
         <div class="section-label">Get Started</div>
         <h2 class="cta-heading">
-          YOUR PROPERTY<br>
-          <span class="text-green">DESERVES BETTER.</span>
+          Your property<br>
+          <span class="text-green">deserves better.</span>
         </h2>
         <p class="cta-sub">Free estimates. Fast scheduling. Results that speak for themselves.</p>
 
         <div class="cta-btn-row">
-          <a href="tel:7472023622" class="btn btn-green btn-large">&#128222; Call 747-202-3622</a>
-          <a href="mailto:info@washprosfv.com" class="btn btn-outline btn-large">&#9993; Email Us</a>
+          <a href="tel:7472023622" class="btn btn-green btn-large">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Call 747-202-3622
+          </a>
+          <a href="mailto:info@washprosfv.com" class="btn btn-outline btn-large">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <path d="M4 6l8 7 8-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Email Us
+          </a>
         </div>
 
         <div class="cta-contact-row">
-          <a href="tel:7472023622" class="cta-contact-item">&#128222; 747-202-3622</a>
-          <a href="mailto:info@washprosfv.com" class="cta-contact-item">&#9993; info@washprosfv.com</a>
-          <span class="cta-contact-item">&#128205; San Fernando Valley, CA</span>
+          <a href="tel:7472023622" class="cta-contact-item">747-202-3622</a>
+          <a href="mailto:info@washprosfv.com" class="cta-contact-item">info@washprosfv.com</a>
+          <span class="cta-contact-item">San Fernando Valley, CA</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════ FOOTER ════════════════════════════════ -->
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
   <footer id="footer">
     <div class="container">
       <div class="footer-inner">
         <a href="#" class="nav-logo footer-logo">
           <span class="logo-wash">Wash</span><span class="logo-pro">Pro</span><span class="logo-sfv"> SFV</span>
         </a>
-
         <nav class="footer-nav" aria-label="Footer navigation">
           <a href="#services" class="footer-link">Services</a>
           <a href="#portfolio" class="footer-link">Portfolio</a>
@@ -481,20 +502,26 @@
           <a href="#reviews" class="footer-link">Reviews</a>
           <a href="#cta" class="footer-link">Contact</a>
         </nav>
-
         <p class="footer-copy">&copy; 2025 WashPro SFV Inc. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- ════════════════════════════ FLOATING PHONE BTN ══════════════════════════ -->
+  <!-- ═══════════════════ FLOATING CTA ═══════════════════ -->
   <a href="tel:7472023622" class="floating-phone" id="floatingPhone" aria-label="Call WashPro SFV">
-    &#128222; 747-202-3622
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    747-202-3622
   </a>
 
-  <!-- ══════════════════════════════ LIGHTBOX MODAL ════════════════════════════ -->
+  <!-- ═══════════════════ LIGHTBOX ═══════════════════ -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
     <img class="lightbox-img" id="lightboxImg" src="" alt="" />
   </div>
 
