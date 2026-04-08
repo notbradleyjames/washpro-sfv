@@ -251,6 +251,76 @@
   setTimeout(() => btn.classList.add('visible'), 1500);
 })();
 
+/* ─── Marquee drag-to-scroll ─── */
+(function initMarqueeDrag() {
+  document.querySelectorAll('.marquee-row').forEach(row => {
+    const track = row.querySelector('.marquee-track');
+    if (!track) return;
+
+    const isFwd = track.classList.contains('marquee-track--fwd');
+    const dur   = isFwd ? 36 : 40;   // must match CSS animation duration
+    const name  = isFwd ? 'marqueeLeft' : 'marqueeRight';
+
+    let isDragging = false, startX = 0, dragOffset = 0, baseX = 0;
+
+    function getTranslateX() {
+      const m = new DOMMatrix(window.getComputedStyle(track).transform);
+      return m.m41;
+    }
+
+    function startDrag(clientX) {
+      isDragging = true;
+      startX     = clientX;
+      baseX      = getTranslateX();
+      dragOffset = 0;
+      // Freeze the animation at its current visual position
+      track.style.animationPlayState = 'paused';
+    }
+
+    function moveDrag(clientX) {
+      if (!isDragging) return;
+      dragOffset = clientX - startX;
+      track.style.transform = `translateX(${baseX + dragOffset}px)`;
+    }
+
+    function endDrag() {
+      if (!isDragging) return;
+      isDragging = false;
+
+      const finalX = baseX + dragOffset;
+      const halfW  = track.scrollWidth / 2;  // half = one full set of images
+
+      // Clamp into valid animation range [-halfW, 0]
+      let norm = finalX % halfW;
+      if (norm > 0) norm -= halfW;
+      if (norm < -halfW) norm += halfW;
+
+      // Negative delay = "already this far into the animation"
+      const delay = isFwd
+        ? -(Math.abs(norm) / halfW) * dur         // marqueeLeft: 0 → -halfW
+        : -((norm + halfW) / halfW) * dur;        // marqueeRight: -halfW → 0
+
+      // Apply explicit animation with calculated start offset
+      track.style.transform = '';
+      track.style.animation = `${name} ${dur}s linear ${delay}s infinite`;
+    }
+
+    // Mouse
+    row.addEventListener('mousedown', e => { e.preventDefault(); startDrag(e.clientX); });
+    document.addEventListener('mousemove', e => { moveDrag(e.clientX); });
+    document.addEventListener('mouseup', endDrag);
+
+    // Touch
+    row.addEventListener('touchstart', e => { startDrag(e.touches[0].clientX); }, { passive: true });
+    row.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      moveDrag(e.touches[0].clientX);
+      e.preventDefault(); // prevent page scroll while swiping marquee
+    }, { passive: false });
+    row.addEventListener('touchend', endDrag);
+  });
+})();
+
 /* ─── Button press animation ─── */
 (function initButtonPress() {
   document.querySelectorAll('.btn').forEach(btn => {

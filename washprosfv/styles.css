@@ -756,18 +756,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .comparison-before { clip-path: inset(0 50% 0 0); }
 
-/* Fill panels with real photos */
-.comparison-after img,
-.comparison-before img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* 2025-06-16.webp is a 2-in-1 composite: BEFORE on left, AFTER on right.
+   background-size: 200% 100% makes it fill the container with only one half visible.
+   background-position: 0% = left half (BEFORE), 100% = right half (AFTER). */
+.comparison-after,
+.comparison-before {
+  background-image: url('assets/images/2025-06-16.webp');
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
 }
-/* 2025-06-16.webp is a side-by-side split image:
-   BEFORE = left half, AFTER = right half */
-.comparison-split-after  { object-position: right center; }
-.comparison-split-before { object-position: left center; }
+.comparison-after  { background-position: 100% 50%; } /* right half = clean/AFTER */
+.comparison-before { background-position: 0%   50%; } /* left half  = dirty/BEFORE */
 
 .comparison-label {
   position: absolute;
@@ -1627,9 +1626,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .marquee-track--rev {
   animation: marqueeRight 40s linear infinite;
 }
-#marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
+/* Hover pause removed — animation runs continuously.
+   Drag-to-scroll is handled in JS (initMarqueeDrag). */
 
 @keyframes marqueeLeft {
   from { transform: translateX(0); }
