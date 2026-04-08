@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <pattern id="planks" x="0" y="0" width="60" height="20" patternUnits="userSpaceOnUse">
+      <rect width="60" height="20" fill="#6b4c2a"/>
+      <rect y="1" width="60" height="18" fill="#7a5533"/>
+      <line x1="0" y1="0" x2="60" y2="0" stroke="#5a3d1e" stroke-width="1"/>
+      <line x1="0" y1="20" x2="60" y2="20" stroke="#5a3d1e" stroke-width="1"/>
+      <line x1="30" y1="0" x2="30" y2="20" stroke="#5a3d1e" stroke-width="0.5"/>
+    </pattern>
+    <filter id="stain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="4" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="gray"/>
+      <feBlend in="SourceGraphic" in2="gray" mode="multiply"/>
+    </filter>
+  </defs>
+  <!-- Deck planks background -->
+  <rect width="900" height="600" fill="url(#planks)"/>
+  <!-- Dirt/stain overlay -->
+  <rect width="900" height="600" fill="#3a2510" opacity="0.45" filter="url(#stain)"/>
+  <!-- Dark stain patches -->
+  <ellipse cx="200" cy="300" rx="160" ry="100" fill="#1a0f05" opacity="0.5"/>
+  <ellipse cx="620" cy="200" rx="120" ry="80" fill="#1a0f05" opacity="0.4"/>
+  <ellipse cx="750" cy="450" rx="100" ry="70" fill="#1a0f05" opacity="0.35"/>
+  <ellipse cx="100" cy="500" rx="80" ry="60" fill="#1a0f05" opacity="0.3"/>
+  <!-- Mold/algae spots -->
+  <ellipse cx="400" cy="380" rx="90" ry="60" fill="#2d4a1a" opacity="0.5"/>
+  <ellipse cx="550" cy="500" rx="70" ry="50" fill="#2d4a1a" opacity="0.4"/>
+  <!-- MOCK IMAGE label -->
+  <rect x="0" y="530" width="900" height="70" fill="rgba(0,0,0,0.65)"/>
+  <text x="450" y="558" font-family="Arial, sans-serif" font-size="13" fill="#aaa" text-anchor="middle" font-weight="normal">MOCK IMAGE — Replace with real photo</text>
+  <text x="450" y="582" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">Deck / Surface — Before Cleaning</text>
+</svg>
