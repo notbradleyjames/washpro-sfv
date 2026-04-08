@@ -106,14 +106,13 @@
   function animateStat(el) {
     const target   = parseInt(el.dataset.target, 10);
     const suffix   = el.dataset.suffix || '';
-    const duration = 1800;
+    const duration = 1600;
     const start    = performance.now();
 
     const tick = (now) => {
-      const elapsed = now - start;
+      const elapsed  = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      const value = Math.round(easeOut(progress) * target);
-      el.textContent = value + suffix;
+      el.textContent = Math.round(easeOut(progress) * target) + suffix;
       if (progress < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -126,7 +125,7 @@
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
 
   stats.forEach(el => observer.observe(el));
 })();
@@ -258,5 +257,164 @@
     btn.addEventListener('mousedown', () => { btn.style.transform = 'scale(0.97)'; });
     btn.addEventListener('mouseup',   () => { btn.style.transform = ''; });
     btn.addEventListener('mouseleave',() => { btn.style.transform = ''; });
+  });
+})();
+
+/* ─── Site config ─── */
+const SITE_CONFIG = {
+  GOOGLE_REVIEW_URL: 'https://g.page/r/washprosfv/review',
+  OWNER_EMAIL:       'info@washprosfv.com',
+  PHONE:             '747-202-3622',
+};
+
+/* ─── Google Review QR code ─── */
+(function initReviewQR() {
+  const link = document.getElementById('review-link');
+  const img  = document.getElementById('review-qr-img');
+  if (!link || !img) return;
+
+  link.href = SITE_CONFIG.GOOGLE_REVIEW_URL;
+
+  const encoded = encodeURIComponent(SITE_CONFIG.GOOGLE_REVIEW_URL);
+  img.src = `https://api.qrserver.com/v1/create-qr-code/?size=320x320&margin=0&data=${encoded}`;
+})();
+
+/* ─── FAQ accordion ─── */
+(function initFaqAccordion() {
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn    = item.querySelector('.faq-btn');
+    const answer = item.querySelector('.faq-answer');
+    if (!btn || !answer) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+        openItem.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+      });
+
+      // Open clicked (if it was closed)
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
+
+/* ─── Quote form ─── */
+(function initQuoteForm() {
+  const form      = document.getElementById('quoteForm');
+  const submitBtn = document.getElementById('formSubmitBtn');
+  const statusEl  = document.getElementById('formStatus');
+  if (!form || !submitBtn || !statusEl) return;
+
+  function getField(name) {
+    return form.querySelector(`[name="${name}"]`);
+  }
+
+  function showFieldError(el, msg) {
+    const field = el.closest('.form-field');
+    if (!field) return;
+    field.classList.add('field-invalid');
+    const errEl = field.querySelector('.field-error');
+    if (errEl) errEl.textContent = msg;
+  }
+
+  function clearFieldError(el) {
+    const field = el.closest('.form-field');
+    if (!field) return;
+    field.classList.remove('field-invalid');
+    const errEl = field.querySelector('.field-error');
+    if (errEl) errEl.textContent = '';
+  }
+
+  // Live clear on input
+  form.querySelectorAll('input, select, textarea').forEach(el => {
+    el.addEventListener('input', () => clearFieldError(el));
+    el.addEventListener('change', () => clearFieldError(el));
+  });
+
+  function validate() {
+    let valid = true;
+
+    const name = getField('name');
+    if (!name.value.trim()) {
+      showFieldError(name, 'Please enter your name.');
+      valid = false;
+    }
+
+    const phone = getField('phone');
+    const phoneVal = phone.value.replace(/\D/g, '');
+    if (!phoneVal || phoneVal.length < 10) {
+      showFieldError(phone, 'Please enter a valid phone number.');
+      valid = false;
+    }
+
+    const email = getField('email');
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      showFieldError(email, 'Please enter a valid email address.');
+      valid = false;
+    }
+
+    const service = getField('service');
+    if (!service.value) {
+      showFieldError(service, 'Please select a service.');
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  function setLoading(on) {
+    submitBtn.disabled = on;
+    submitBtn.classList.toggle('loading', on);
+  }
+
+  function showStatus(type, msg) {
+    statusEl.className = `form-status ${type}`;
+    statusEl.textContent = msg;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    if (!validate()) return;
+
+    const data = {
+      name:    getField('name').value.trim(),
+      phone:   getField('phone').value.trim(),
+      email:   getField('email').value.trim(),
+      service: getField('service').value,
+      address: getField('address').value.trim(),
+      date:    getField('date').value,
+      message: getField('message').value.trim(),
+    };
+
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/quote', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        showStatus('success', '✓ Quote request sent! We\'ll reach out within a few hours.');
+        form.reset();
+      } else {
+        const body = await res.json().catch(() => ({}));
+        showStatus('error', body.error || 'Something went wrong. Please call us at ' + SITE_CONFIG.PHONE);
+      }
+    } catch {
+      showStatus('error', 'Network error. Please try again or call us at ' + SITE_CONFIG.PHONE);
+    } finally {
+      setLoading(false);
+    }
   });
 })();
