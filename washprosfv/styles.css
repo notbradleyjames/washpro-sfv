@@ -1238,7 +1238,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    MOBILE MENU
 ═══════════════════════════════════════════════ */
 @media (max-width: 768px) {
-  .hamburger { display: flex; }
+  .hamburger { display: flex; position: relative; z-index: 100; }
   .nav-links {
     position: fixed;
     inset: 0;

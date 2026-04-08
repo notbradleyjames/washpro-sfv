@@ -67,6 +67,16 @@
       document.body.style.overflow = '';
     }
   });
+
+  // Close on tap outside links (tap the overlay background)
+  navLinks.addEventListener('click', (e) => {
+    if (e.target === navLinks) {
+      navLinks.classList.remove('mobile-open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
 })();
 
 /* ─── Scroll reveal (IntersectionObserver) ─── */
