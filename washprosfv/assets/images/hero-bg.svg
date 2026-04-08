@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0d2a4a"/>
+      <stop offset="40%"  stop-color="#1a4a7a"/>
+      <stop offset="75%"  stop-color="#2e6ea6"/>
+      <stop offset="100%" stop-color="#4a90c8"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#1a1208"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="hills" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#2a4a1a"/>
+      <stop offset="100%" stop-color="#1a2e10"/>
+    </linearGradient>
+    <radialGradient id="sun-glow" cx="75%" cy="35%" r="30%">
+      <stop offset="0%"   stop-color="#f0c060" stop-opacity="0.25"/>
+      <stop offset="40%"  stop-color="#d08030" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur-sm">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <filter id="blur-md">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="1600" height="900" fill="url(#sky)"/>
+
+  <!-- Sun glow -->
+  <rect width="1600" height="900" fill="url(#sun-glow)"/>
+
+  <!-- Distant mountains -->
+  <polygon points="0,540 120,360 260,430 380,310 520,400 640,340 780,420 900,360 1020,440 1140,370 1280,450 1400,390 1600,460 1600,620 0,620" fill="#1e3a5a" opacity="0.7"/>
+  <polygon points="0,560 200,400 380,470 560,390 720,460 880,400 1040,470 1200,410 1360,480 1600,430 1600,640 0,640" fill="#1a3050" opacity="0.8"/>
+
+  <!-- Mid hills (darker) -->
+  <polygon points="0,600 150,480 300,530 480,470 640,520 800,475 960,525 1120,480 1280,530 1440,490 1600,520 1600,700 0,700" fill="url(#hills)" opacity="0.85"/>
+
+  <!-- Foreground ground -->
+  <rect y="660" width="1600" height="240" fill="url(#ground)"/>
+
+  <!-- Rooftop edge / parapet suggestion -->
+  <rect y="638" width="1600" height="28" fill="#0f1a0a" opacity="0.9"/>
+  <rect y="630" width="1600" height="10" fill="#1a2a10" opacity="0.6"/>
+
+  <!-- Subtle cloud streaks -->
+  <ellipse cx="320"  cy="200" rx="220" ry="35" fill="white" opacity="0.04" filter="url(#blur-md)"/>
+  <ellipse cx="900"  cy="150" rx="300" ry="40" fill="white" opacity="0.05" filter="url(#blur-md)"/>
+  <ellipse cx="1350" cy="220" rx="200" ry="30" fill="white" opacity="0.04" filter="url(#blur-md)"/>
+  <ellipse cx="600"  cy="280" rx="180" ry="25" fill="white" opacity="0.03" filter="url(#blur-sm)"/>
+
+  <!-- City lights suggestion on horizon -->
+  <rect x="400"  y="630" width="4"  height="8"  fill="#ffd080" opacity="0.35"/>
+  <rect x="520"  y="625" width="3"  height="12" fill="#ffd080" opacity="0.28"/>
+  <rect x="680"  y="632" width="5"  height="7"  fill="#ffd080" opacity="0.32"/>
+  <rect x="830"  y="628" width="3"  height="10" fill="#ffd080" opacity="0.30"/>
+  <rect x="960"  y="633" width="4"  height="6"  fill="#ffd080" opacity="0.25"/>
+  <rect x="1100" y="626" width="3"  height="11" fill="#ffd080" opacity="0.28"/>
+  <rect x="1220" y="631" width="4"  height="8"  fill="#ffd080" opacity="0.30"/>
+  <rect x="1380" y="627" width="5"  height="10" fill="#ffd080" opacity="0.26"/>
+</svg>
